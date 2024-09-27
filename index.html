@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miríades Tech - Sua SalesTech</title>
+    <meta name="description" content="Impulsione suas vendas com nossa fábrica de software. Oferecemos soluções on demand para facilitar pagamentos e gerenciar seu negócio de maneira eficiente.">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'M PLUS 1p', sans-serif;
+            background-color: white;
+            color: #5CA4F4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+        }
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 20px 80px; /* Padding lateral para o menu */
+            margin-top: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center; /* Centraliza verticalmente a logo */
+            padding-left: 50px; /* Ajusta o padding lateral para a logo */
+        }
+        .logo img {
+            height: 40px; /* Ajusta o tamanho da logo */
+        }
+        .menu-container {
+            flex: 1; /* Faz com que o contêiner do menu ocupe o espaço restante */
+            display: flex;
+            justify-content: center; /* Centraliza o menu horizontalmente */
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza horizontalmente os itens do menu */
+        }
+        .menu a {
+            text-decoration: none;
+            color: #5CA4F4;
+            font-weight: bold;
+            margin: 0 15px; /* Espaçamento entre os itens do menu */
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            padding: 0 100px; /* Ajusta o padding lateral para os botões */
+        }
+        .auth-buttons button {
+            background-color: #5CA4F4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'M PLUS 1p', sans-serif;
+            border-radius: 20px;
+        }
+        .auth-buttons .signup-button {
+            background-color: transparent;
+            color: #5CA4F4;
+            border: 2px solid #5CA4F4;
+        }
+        .auth-buttons .login-button {
+            padding: 10px 30px;
+        }
+        .main-content {
+            text-align: center;
+            margin-top: 40px; /* Aproximar do menu */
+            padding: 0 20px; /* Padding para evitar o corte de texto em telas menores */
+        }
+        .main-content h1 {
+            font-size: 64px;
+            font-weight: bold;
+            color: #5CA4F4;
+            margin: 0;
+        }
+        .main-content h2 {
+            font-size: 36px;
+            color: #95A3B1;
+            margin: -10px 0 20px 0; /* Margem superior negativa para aproximar as frases */
+        }
+        .cta-button {
+            background-color: #5CA4F4;
+            color: white;
+            border: none;
+            padding: 15px 50px; /* Aumenta a largura do botão */
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase; /* Maiúsculas */
+            border-radius: 30px; /* Arredonda mais o botão */
+            cursor: pointer;
+            margin-top: 20px; /* Espaço entre a frase e o botão */
+        }
+        .carousel-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Espaço entre o botão e o carrossel */
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 905px; /* Largura máxima do carrossel */
+            height: auto;
+            overflow: hidden;
+            display: flex;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .transformation-phrase {
+            font-size: 24px; /* Tamanho da fonte */
+            color: #95A3B1; /* Cor da fonte */
+            margin-top: 40px; /* Espaço entre o carrossel e a frase */
+            text-align: center; /* Centraliza o texto */
+            width: 100%; /* Ocupa a largura total do contêiner */
+        }
+        .software-solutions {
+            font-size: 40px; /* Tamanho da fonte */
+            font-weight: bold;
+            color: #5CA4F4; /* Cor da fonte */
+            margin-top: 5px; /* Espaço entre a frase e a frase anterior */
+            text-align: center; /* Centraliza o texto */
+            white-space: pre-wrap; /* Mantém a quebra de linha */
+            width: 100%; /* Ocupa a largura total do contêiner */
+        }
+        .additional-image {
+            margin-top: 40px; /* Espaço entre o carrossel e a nova imagem */
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente a imagem */
+        }
+        .additional-image img {
+            width: 100%;
+            height: auto;
+            max-width: 982px; /* Largura máxima da nova imagem */
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo {
+                padding-left: 0;
+            }
+            .menu-container {
+                width: 100%;
+                order: 3;
+            }
+            .menu {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .menu a {
+                margin: 0;
+            }
+            .auth-buttons {
+                padding: 0;
+                order: 2;
+                gap: 5px;
+                width: 100%;
+                justify-content: flex-end;
+            }
+            .main-content h1 {
+                font-size: 48px;
+            }
+            .main-content h2 {
+                font-size: 28px;
+            }
+            .cta-button {
+                padding: 10px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="img/miriades-icon.png" alt="Logo Miríades Tech">
+        </div>
+        <div class="menu-container">
+            <div class="menu">
+                <a href="#">HOME</a>
+                <a href="#">SOBRE</a>
+                <a href="#">CASES</a>
+                <a href="#">SERVIÇOS</a>
+                <a href="#">PRICING</a>
+            </div>
+        </div>
+        <div class="auth-buttons">
+            <button class="signup-button">CADASTRE-SE</button>
+            <button class="login-button">LOGIN</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Startup Innovation Tech</h1>
+        <h2>Simplifique pagamentos, facilite vendas!</h2>
+        <button class="cta-button">CONHECER SOLUÇÕES</button>
+        
+        <!-- Carrossel de Imagens -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <img src="img/banner1.png" alt="Imagem 1">
+                <img src="img/banner2.png" alt="Imagem 2">
+                <img src="img/banner3.png" alt="Imagem 3">
+                <img src="img/banner4.png" alt="Imagem 4">
+                <img src="img/banner5.png" alt="Imagem 5">
+                <div class="carousel-buttons">
+                    <button class="carousel-button" id="prev">&lt;</button>
+                    <button class="carousel-button" id="next">&gt;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="transformation-phrase">
+            Queremos transformar sua forma de fazer negócio!
+        </div>
+        
+        <div class="software-solutions">
+            Nossas soluções de software<br>acompanham o crescimento do seu negócio.
+        </div>
+        <br/>
+        <div class="additional-image">
+            <img src="img/banner-services.png" alt="Imagem Adicional">
+        </div>
+    </div>
+
+    <script>
+        // Carrossel de Imagens
+        const images = document.querySelectorAll('.carousel img');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let index = 0;
+        const intervalTime = 3000; // Tempo entre as trocas de imagem (em milissegundos)
+        let interval;
+    
+        function showImage(idx) {
+            images.forEach((img, i) => {
+                img.style.transform = `translateX(-${idx * 100}%)`;
+            });
+        }
+    
+        function startAutoSlide() {
+            interval = setInterval(() => {
+                index = (index < images.length - 1) ? index + 1 : 0;
+                showImage(index);
+            }, intervalTime);
+        }
+    
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+    
+        prevButton.addEventListener('click', () => {
+            stopAutoSlide(); // Para o avanço automático ao clicar manualmente
+            index = (index > 0) ? index - 1 : images.length - 1;
+            showImage(index);
+            startAutoSlide(); // Reinicia o avanço automático
+        });
+    
+        nextButton.addEventListener('click', () => {
+            stopAutoSlide(); // Para o avanço automático ao clicar manualmente
+            index = (index < images.length - 1) ? index + 1 : 0;
+            showImage(index);
+            startAutoSlide(); // Reinicia o avanço automático
+        });
+    
+        // Inicializa o carrossel
+        showImage(index);
+        startAutoSlide(); // Inicia o avanço automático
+    </script>
+
+</body>
+</html>
